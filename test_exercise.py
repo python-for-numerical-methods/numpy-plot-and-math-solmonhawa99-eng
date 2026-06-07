@@ -2,13 +2,12 @@ import numpy as np
 
 def normalized_array(input_array):
 
-    min_val = input_array.min()
-    max_val = input_array.max()
+    arr = np.array(input_array, dtype=float)
 
-    if max_val == min_val:
-        new_array = np.zeros(input_array.shape)
+    min_val = np.min(arr)
+    max_val = np.max(arr)
 
-    else:
-        new_array = (input_array - min_val) / (max_val - min_val)
+    if min_val == max_val:
+        return np.zeros(len(arr))
 
-    return new_array
+    return (arr - min_val) / (max_val - min_val)
